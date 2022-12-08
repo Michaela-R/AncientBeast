@@ -905,10 +905,17 @@ export class UI {
 			});
 
 			// Card A
+			const screensize =
+				window.innerHeight < window.innerWidth
+					? document.documentElement.clientHeight
+					: (screensize = document.documentElement.clientWidth);
+			const artworkFolder = screensize > 480 ? '400_520/' : '200_260/';
+
 			$j('#card .sideA').css({
 				'background-image': `url('${getUrl('cards/margin')}'), url('${getUrl(
-					'units/artwork/' + stats.name,
+					'units/artwork/' + artworkFolder + stats.name,
 				)}')`,
+				'background-size': 'cover, 93%',
 			});
 			$j('#card .sideA .section.info')
 				.removeClass('sin- sinA sinE sinG sinL sinP sinS sinW')
@@ -1102,10 +1109,17 @@ export class UI {
 			}
 		} else {
 			// Card A
+			const screensize =
+				window.innerHeight < window.innerWidth
+					? document.documentElement.clientHeight
+					: (screensize = document.documentElement.clientWidth);
+			const artworkFolder = screensize > 480 ? '400_520/' : '200_260/';
+
 			$j('#card .sideA').css({
 				'background-image': `url('${getUrl('cards/margin')}'), url('${getUrl(
-					'units/artwork/' + stats.name,
+					'units/artwork/' + artworkFolder + stats.name,
 				)}')`,
+				'background-size': 'cover, 93%',
 			});
 			$j('#card .sideA .section.info')
 				.removeClass('sin- sinA sinE sinG sinL sinP sinS sinW')

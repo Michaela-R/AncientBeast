@@ -209,7 +209,16 @@ export default class Game {
 			this.soundsys.getSound(getUrl('units/shouts/' + name), 1000 + creatureId);
 
 			// Load artwork
-			this.getImage(getUrl('units/artwork/' + name));
+			const screensize =
+				window.innerHeight < window.innerWidth
+					? document.documentElement.clientHeight
+					: (screensize = document.documentElement.clientWidth);
+
+			if (screensize > 480) {
+				this.getImage(getUrl('units/artwork/400_520/' + name));
+			} else {
+				this.getImage(getUrl('units/artwork/200_260/' + name));
+			}
 
 			if (name == 'Dark Priest') {
 				for (i = 0, count = dpcolor.length; i < count; i++) {
@@ -326,6 +335,7 @@ export default class Game {
 		);
 
 		// Background
+
 		this.Phaser.load.image('background', getUrl('locations/' + this.background_image + '/bg'));
 
 		// Get JSON files
